@@ -1,12 +1,12 @@
 <div class="container">
-<% cache(action: "index", action_suffix: "orders_count" %>
+<% cache "orders-count-#{Order.maximum(:updated_at)}" %>
 <div class="row">
   <div class="col-sm-12">
     <h1><%= @orders.count %> Orders</h1>
   </div>
 </div>
 <% end %>
-<% cache(action: "index", action_suffix: "orders_list" %>
+<% cache "orders-list-#{Order.maximum(:updated_at)}" %>
 <div class="row"></div>
 <% @orders.each do |order| %>
   <div class="col-sm-12">
